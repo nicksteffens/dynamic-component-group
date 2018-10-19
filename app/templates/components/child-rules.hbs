@@ -1,0 +1,6 @@
+{{#each parent.rules as |rule|}}
+  <TargetingRule
+    @rule={{rule}}
+    @onUpdate={{action "updateRule"}}
+    @removeRuleAction={{action 'removeRule'}}/>
+{{/each}}

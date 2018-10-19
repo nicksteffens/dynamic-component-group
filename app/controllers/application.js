@@ -13,22 +13,24 @@ export default Controller.extend({
 
   addNewRule: false,
   addNewGroup: false,
+  model: null,
 
   actions: {
-    updateRule(rule) {
-      this.set('rule', rule);
+    addRuleSet() {
+      const model = this.get('store').createRecord('rule-set');
+      this.set('model', model);
     },
 
-    addNewRule() {
-      this.set('addNewRule', true);
+    addRule(model) {
+      const rule = this.get('store').createRecord('rule');
+
+      model.rules.pushObject(rule);
     },
 
-    removeRule() {
-      this.set('addNewRule', false);
-    },
+    addGroup(model) {
+      const group = this.get('store').createRecord('group');
 
-    addNewGroup() {
-      this.set('addNewGroup', true);
-    }
+      model.groups.pushObject(group);
+    },
   }
 });

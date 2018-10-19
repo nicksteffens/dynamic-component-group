@@ -8,30 +8,54 @@
   <div class="bg">
     <p>
       Content in this target will display based on the following rules:
+
+      <button class="float-right text-blue border-transparent btn btn-flat add-rule-set"
+        {{action "addRuleSet"}}>
+        Add Rule Set
+      </button>
     </p>
 
-    <br>
-    {{add-rule addRuleAction=(action 'addNewRule')}}
-    {{add-group addGroupAction=(action 'addNewGroup')}}
-    <br>
-    <br>
+    {{#if model}}
+      <div>
+        <button class="btn btn-neutral rounded-r-none border-r-0 rule-add" disabled>
+          AND
+        </button>
+        <button class="btn btn-neutral rounded-l-none rule-or" disabled>
+          OR
+        </button>
+      </div>
 
-    <button class="btn btn-blue">
-      Save Changes
-    </button>
+      {{child-rules parent=model}}
+      {{child-groups parent=model
+        addRuleAction=(action 'addRule')
+        addGroupsAction=(action 'addGroup')}}
 
-    <br>
-    <br>
 
-    <button class="btn btn-neutral">
-      Cancel
-    </button>
 
-    <br>
-    <br>
+      <label for="">Template Name</label>
 
-    <br>
-    <br>
+      <input type="text" class="template-name" placeholder="template name">
+      <div>
+        <button class="btn add-rule"
+          {{action 'addRule' model}}>
+          Add Rule
+        </button>
+
+        <button class="btn add-group"
+          {{action 'addGroup' model}}>
+          Add group
+        </button>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-blue">
+          Save Changes
+        </button>
+        <button class="btn btn-neutral"
+          {{action 'removeRuleSet'}}>
+          Cancel
+        </button>
+      </div>
+    {{/if}}
 
     {{#if addNewGroup}}
       {{and-or isAnd=true}}
@@ -42,14 +66,8 @@
 
     {{#if addNewRule}}
       <div class="inline-flex">
-        <button class="btn btn-neutral rounded-r-none border-r-0" disabled>
-          AND
-        </button>
-        <button class="btn btn-neutral rounded-l-none" disabled>
-          OR
-        </button>
+
       </div>
-      <TargetingRule @rule={{this.rule}} @onUpdate={{action "updateRule"}} @removeRuleAction={{action 'removeRule'}} />
     {{/if}}
 
     <br>

@@ -1,0 +1,27 @@
+{{#each parent.groups as |group|}}
+  <div>
+    <button class="btn btn-neutral rounded-r-none border-r-0 rule-add" disabled>
+      AND
+    </button>
+    <button class="btn btn-neutral rounded-l-none rule-or" disabled>
+      OR
+    </button>
+  </div>
+
+  <!-- // group outlet -->
+  {{child-rules parent=group}}
+  {{child-groups parent=group
+    addRuleAction=addRuleAction
+    addGroupsAction=addGroupAction}}
+  <div>
+    <button class="btn add-rule"
+      {{action 'addRule' group}}>
+      Add Rule
+    </button>
+
+    <button class="btn add-group"
+      {{action 'addGroup' group}}>
+      Add group
+    </button>
+  </div>
+{{/each}}
