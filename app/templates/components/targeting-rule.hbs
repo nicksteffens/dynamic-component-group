@@ -1,0 +1,32 @@
+<select
+  class="mr-1"
+>
+  <option>Query Parameter</option>
+</select>
+
+<input
+  data-prop="queryParam"
+  class="border rounded-sm p-1"
+  value={{@rule.queryParam}}
+  oninput={{action (action "updateProperty" "queryParam") value="target.value"}}
+>
+
+<select
+  class="mr-1"
+>
+  <option>is</option>
+  <option>is not</option>
+  <option>is greater than</option>
+  <option>is less than</option>
+</select>
+
+<input
+  data-prop="comparedTo"
+  class="border rounded-sm p-1"
+  value={{@rule.comparedTo}}
+  oninput={{action (action "updateProperty" "comparedTo") value="target.value"}}
+>
+<button {{action 'removeRule'}}>
+  {{fa-icon "times"}}
+</button>
+

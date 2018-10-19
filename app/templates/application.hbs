@@ -1,0 +1,59 @@
+{{outlet}}
+
+<div class="card">
+  <header class="bg-grey-lighter p-3 border-grey border-solid">
+    <h4>Set Targeting rules</h4>
+  </header>
+
+  <div class="bg">
+    <p>
+      Content in this target will display based on the following rules:
+    </p>
+
+    <br>
+    {{add-rule addRuleAction=(action 'addNewRule')}}
+    {{add-group addGroupAction=(action 'addNewGroup')}}
+    <br>
+    <br>
+
+    <button class="btn btn-blue">
+      Save Changes
+    </button>
+
+    <br>
+    <br>
+
+    <button class="btn btn-neutral">
+      Cancel
+    </button>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    {{#if addNewGroup}}
+      {{and-or isAnd=true}}
+    {{/if}}
+
+    <br>
+    <br>
+
+    {{#if addNewRule}}
+      <div class="inline-flex">
+        <button class="btn btn-neutral rounded-r-none border-r-0" disabled>
+          AND
+        </button>
+        <button class="btn btn-neutral rounded-l-none" disabled>
+          OR
+        </button>
+      </div>
+      <TargetingRule @rule={{this.rule}} @onUpdate={{action "updateRule"}} @removeRuleAction={{action 'removeRule'}} />
+    {{/if}}
+
+    <br>
+    <br>
+
+  </div>
+</div>

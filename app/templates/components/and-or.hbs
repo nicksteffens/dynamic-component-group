@@ -1,0 +1,8 @@
+<div class="inline-flex">
+  <button class="btn {{if isAnd 'btn-dark' 'btn-neutral'}} rounded-r-none border-r-0" {{action 'setGroup' true}}>
+    AND
+  </button>
+  <button class="btn {{if (not isAnd) 'btn-dark' 'btn-neutral'}} rounded-l-none" {{action 'setGroup' false}}>
+    OR
+  </button>
+</div>
