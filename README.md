@@ -1,8 +1,8 @@
 # A few screenshots of how this should look!
 
-![image-1](https://user-images.githubusercontent.com/2889608/46873542-d72c5d00-ce04-11e8-8b8b-2e51fd177e9e.png)
-![image-2](https://user-images.githubusercontent.com/2889608/46873543-d72c5d00-ce04-11e8-8fdc-4588ac066579.png)
-![image-3](https://user-images.githubusercontent.com/2889608/46873544-d72c5d00-ce04-11e8-8494-1e63b2407799.png)
+![image-1](public/46873542-d72c5d00-ce04-11e8-8b8b-2e51fd177e9e.png)
+![image-2](public/46873543-d72c5d00-ce04-11e8-8fdc-4588ac066579.png)
+![image-3](public/46873544-d72c5d00-ce04-11e8-8494-1e63b2407799.png)
 
 
 # rule-groups-hijinks
